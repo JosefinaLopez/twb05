@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fibbonaci</title>
+    </head>
+    <style>
+        li{
+            list-style: none;
+        }
+        #lista{
+            background-color: rgba(3, 3, 3, 0.24);
+            border-radius: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .container .imgxd{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <body>
+        <h1>Serie de Fibbonaci</h1>
+        <div class="container">
+            <div class="imgxd">
+                <img src="./static/img/fibonacci.gif" alt="Fibbonacci">
+            </div>
+            <div class="num">
+                <ul id='lista'>
+                    <h2>Serie</h2>
+                </ul>
+            </div>
+
+        </div>
+        <script>
+            function Fibonacci() {
+                var x = 0;
+                var y = 1;
+                var z = 1;
+                //!Important : Con comilas simples
+                // let y  = `[ ${y}]`;
+                // document.getElementById('fibo_number1').innerHTML = y;
+                var ul = document.getElementById('lista');
+                for (let i = 0; i < 15; i++) {
+                    var li = document.createElement('li');
+                    li.appendChild(document.createTextNode(z));
+                    ul.appendChild(li);
+                    z = x + y;
+                    x = y;
+                    y = z;
+                }
+
+            }
+            Fibonacci()
+        </script>
+    </body>
+
+</html>

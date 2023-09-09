@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>fecha</title>
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+        body{
+            padding: 0;
+            margin: 12rem;
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+
+        }
+    </style>
+    <body>
+        <h1 style='text-align: center; display:flex; justify-content:center;'>
+            fecha :) </h1>
+            <p><strong>Averigua el primer y ultimo dia de un mes dado de un año dado</strong></p>
+        <script>
+            function Knowndate(date) {
+                var d = new Date(date);
+                var aux = new Date(date);
+                d.setDate(aux.getDate() - (aux.getDate() - 1));
+                document.write(d + "<br></br>");
+                for (var i = 31; i > 27; i--) {
+                    d.setDate(i);
+                    if (d.getMonth() > aux.getMonth()) {
+                        d = new Date(date);
+                    }
+                    else {
+                        document.write(d + "<br></br>");
+                        break;
+                    }
+                }
+            }
+            //! important funcion prompt <- es como un input en ventana emergente
+            var date = prompt("Ingrese una fecha mes/dia/año: ");
+            Knowndate(date);
+        </script>
+
+    </body>
+
+</html>

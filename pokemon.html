@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de daño Pokemon</title>
+        <link rel="stylesheet" href="./static/style.css">
+    </head>
+    <style>
+        body{
+            background-image: url('./static/img/fondopokemon.jpg');
+            background-size:cover;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+    <body>
+        <div class="container">
+            <h1>Calculadora de Daño Pokemon</h1>
+            <label for="tipo1">Tipo 1</label>
+            <select name="tipo1" id="tipo1">
+                <option value="fuego">Fuego</option>
+                <option value="agua">Agua</option>
+                <option value="hierba">Hierba</option>
+                <option value="electricidad">Electrico</option>
+            </select>
+
+            <label for="tipo2">Tipo 2</label>
+            <select name="tipo2" id="tipo2">
+                <option value="fuego">Fuego</option>
+                <option value="agua">Agua</option>
+                <option value="hierba">Hierba</option>
+                <option value="electricidad">Electrico</option>
+            </select>
+            <input type="number" placeholder="Ataque" id="ataque">
+            <input type="number" placeholder="defensa" id="defensa">
+
+            <button onclick='DañoPokemon()'>Calcular Daño</button>
+            <div class="result">
+                <p>resultado...</p>
+                <h2 id='result'></h2>
+            </div>
+        </div>
+
+
+        <script>
+            function DañoPokemon() {
+                var tipo1 = document.getElementById("tipo1").value;
+                var tipo2 = document.getElementById("tipo2").value;
+                var ataque = document.getElementById("ataque").value;
+                var defensa = document.getElementById("defensa").value;
+
+                var eficacia = 1;
+
+                if (tipo1 === "fuego" && tipo2 === "hierba") {
+                    eficacia = 2;
+                } else if (tipo1 === "agua" && tipo2 === "fuego") {
+                    eficacia = 2;
+                } else if (tipo1 === "electricidad" && tipo2 === "agua") {
+                    eficacia = 2;
+                } else if ((tipo1 === "fuego" && tipo2 === "electrico") || (tipo2 === "fuego" && tipo1 === "electrico")) {
+                    eficacia = 1;
+                } else if ((tipo1 === "fuego" && tipo2 === "hierba") || (tipo2 === "fuego" && tipo1 === "hierba")) {
+                    eficacia = 1;
+                } else {
+                    eficacia = 0.5;
+                }
+
+                var daño = Math.floor(50 * (ataque / defensa) * eficacia);
+                document.getElementById("result").innerHTML = `El Daño es de ${daño}`;
+            }
+            </script>
+    </body>
+
+</html>

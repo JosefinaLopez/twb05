@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Palindromo</h1>
+        <p>Identifica si la palabra es palindromo o no</p>
+        <input type="text" name="string" id="str" style='width: 300px;'>
+        <button onclick='Palindromo()'>Comprobar</button>
+    </div>
+</body>
+<script>
+    function Palindromo() {
+            var str = document.getElementById("str").value;
+            //! '\' <- inicio de expresion  '\s' <- espacio en blanco  '/' <- final de expresion  g <- global, buscara las similitudes
+            let xd = str.replace(/\s/g, '').toLowerCase();
+            const reverse = xd.split('').reverse().join('');
+            console.log(reverse)
+            if (xd == reverse) {
+                alert(`La palabra ${str} es palidroma`)
+            }
+            else {
+                alert(`La palabra ${str} no es palidroma`)
+            }
+        }
+</script>
+</html>

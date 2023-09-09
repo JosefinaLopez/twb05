@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+        body{
+            font-family: 'DM Serif Display', serif;
+        }
+        .contenedor{
+            display: flex;
+            justify-content: center;
+        }
+        .preview{
+            display: grid;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        .preview img{
+            height: 70px;
+            width: 70px;
+            border-radius: 30%;
+        }
+        .preview img:hover{
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+        }
+        .visor{
+            width: 150vh;
+            height: 85vh;
+            border-radius: 30px;
+        }
+        h1{
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+        }
+        hr{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galery</h1>
+    <div class="contenedor">
+        <div class="preview">
+            <img  onclick='cambiar(1)'src="./static/img/img1.jpg" alt="Punta Jesus - Maria">
+            <img  onclick='cambiar(2)'src="./static/img/img2.jpg" alt="Dibujo">
+            <img  onclick='cambiar(3)'src="./static/img/img3.jpg" alt="Catedral de Granada">
+            <img onclick='cambiar(4)' src="./static/img/img4.jpg" alt="Ojo de Agua - Isla de Ometepe">
+            <img onclick='cambiar(5)' src="./static/img/img5.jpg" alt="Nicaragua">
+        </div>
+        <img src="/static/img/img1.jpg" id="visor" class="visor">
+    </div>
+    <script>
+        function cambiar(id){
+            let visor = document.getElementById("visor")
+            visor.setAttribute("src",`./static/img/img${id}.jpg`);
+        }
+    </script>
+</body>
+</html>

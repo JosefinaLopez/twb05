@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animacion Coche</title>
+    </head>
+
+    <body>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+            * {
+                margin: 0px auto;
+                padding: 0px;
+                font-family: 'DM Serif Display', serif;
+            }
+
+            h1 {
+                font: bold 1.5rem arial;
+                text-align: center;
+                padding: 0.5rem;
+            }
+
+            #visor {
+                position: absolute;
+                top: 100px;
+                left: 450px;
+                width: 450px;
+                height: 300px;
+                overflow: hidden;
+                border: 2px solid rebeccapurple;
+            }
+
+            #fondouno {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            #fondodos {
+                position: absolute;
+                top: 0px;
+                left: 450px;
+            }
+
+            #micoche {
+                position: absolute;
+                top: 180px;
+                left: 120px;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: black;
+            }
+
+            .xd {
+                cursor: pointer;
+                position: relative;
+                display: block;
+                justify-content: center;
+                top: 30rem;
+                padding: 15px;
+                border-radius: 30px;
+                border-style: none;
+                font-size: large;
+            }
+
+            .xd:hover {
+                background-color: rebeccapurple;
+                color: white;
+            }
+
+        </style>
+        <main class="container">
+            <div id="visor">
+                <div id="fondouno">
+                    <img src="./static/img/fondoCoche.gif" alt="Fondo 1">
+                </div>
+                <div id="fondodos">
+                    <img src="./static/img/fondoCoche.gif" alt="Fondo 2">
+                </div>
+                <div id="micoche">
+                    <img src="./static/img/coche.gif" alt="El Coche">
+                </div>
+            </div>
+            <button onclick="MoverCoche()" class="xd">Toca Aqui</button>
+        </main>
+
+        <script>
+            function MoverCoche() {
+                fondo1 = document.getElementById("fondouno");
+                fondo2 = document.getElementById("fondodos");
+                paramover = setInterval(mover, 50);
+                setInterval(repetir, 2250);
+            }
+            desplazar = 0;
+            function mover() {
+                desplazar -= 10;
+                desplazar2 = desplazar + 450;
+                position1 = desplazar + "px";
+                position2 = desplazar2 + "px";
+                fondo1.style.left = position1;
+                fondo2.style.left = position2;
+            }
+            function repetir() {
+                fondo1.style.left = "0px";
+                fondo2.style.left = "450px";
+                desplazar = 0;
+            }
+        </script>
+
+    </body>
+
+</html>

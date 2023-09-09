@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Numeros Pares</title>
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+        body {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .contenedor {
+            text-align: center;
+        }
+
+        #vol {
+            width: 20%;
+            /* Define el ancho del slider */
+            height: 20px;
+            /* Define la altura del slider */
+            -webkit-appearance: none;
+            /* Elimina la apariencia por defecto en navegadores webkit */
+            appearance: none;
+            /* Elimina la apariencia por defecto en otros navegadores */
+            background-color: #ddd;
+            /* Color de fondo del slider */
+            border-radius: 10px;
+            /* Radio de borde para hacerlo redondeado */
+            outline: none;
+            /* Elimina el borde al enfocar */
+        }
+
+        #vol::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /* Elimina la apariencia por defecto en navegadores webkit */
+            appearance: none;
+            /* Elimina la apariencia por defecto en otros navegadores */
+            width: 20px;
+            /* Ancho del "thumb" (el control deslizante) */
+            height: 20px;
+            /* Altura del "thumb" */
+            background-color: mediumorchid;
+            /* Color de fondo del "thumb" */
+            border-radius: 50%;
+            /* Hace el "thumb" circular */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el "thumb" */
+        }
+
+        #vol::-moz-range-thumb {
+            width: 30px;
+            /* Ancho del "thumb" en navegadores Firefox */
+            height: 30px;
+            /* Altura del "thumb" en navegadores Firefox */
+            background-color: mediumorchid;
+            /* Color de fondo del "thumb" en navegadores Firefox */
+            border-radius: 50%;
+            /* Hace el "thumb" circular en navegadores Firefox */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el "thumb" en navegadores Firefox */
+        }
+
+    </style>
+
+    <body>
+        <div class="contenedor">
+            <h1>Numeros Impares</h1>
+            <p>Escriba un rango que este entre 0 - 100</p>
+            <input type="range" id="vol" min='0' max='100' step='1' oninput='showValue(this.value)' value='0'>
+            <label for="vol" id='rangeValue'>0</label>
+            <div class="resultado">
+                <hr>
+                <h5>Salida</h5>
+                <p id='result'></p>
+                <hr>
+            </div>
+        </div>
+        <script>
+            function showValue(range) {
+                document.getElementById("rangeValue").innerHTML = range;
+                let impares = "";
+                for (let i = 0; i < range; i++) {
+                    if (i % 2 != 0) {
+                        console.log(`numero impar ${i}`)
+                        let r = `El numero ${i} Es impar`;
+                        impares += r + "<br>";
+                    }
+                }
+                document.getElementById("result").innerHTML = impares;
+            }
+        </script>
+    </body>
+
+</html>
